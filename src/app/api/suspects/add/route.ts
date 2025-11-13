@@ -13,6 +13,7 @@ export async function POST(req: NextRequest) {
     const { stdout } = await execAsync(
       `py -3.12 python/generate_embedding.py "${imagePath}"`
     );
+    console.log( `py -3.12 python/generate_embedding.py "${imagePath}"`)
     const faceEmbedding = JSON.parse(stdout.trim());
     const suspect = new Suspect({
       ...formData,
